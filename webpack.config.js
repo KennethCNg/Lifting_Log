@@ -23,7 +23,7 @@ plugins = plugins.concat(
 
 module.exports = {
   context: __dirname,
-  entry: './frontend/harmony.jsx',
+  entry: './frontend/lifting.jsx',
   output: {
     path: path.resolve(__dirname),
     filename: './app/assets/javascripts/bundle.js',
