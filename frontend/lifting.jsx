@@ -1,7 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
+class Root extends React.Component {
+  render() {
+    return(
+      <div>
+        Welcome To Lifting
+      </div>
+    );
+  }
+}
+
 document.addEventListener('DOMContentLoaded', () => {
-  const root = document.getElementById('root');
-  ReactDOM.render(<h1>Welcome to Lifting</h1>, root);
+  ReactDOM.render(<Root/>, document.getElementById('root'));
 });
