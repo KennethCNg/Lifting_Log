@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
+import { Grid, Form, FormControl, Button, Col, Row } from 'react-bootstrap';
 
 class SessionForm extends React.Component {
   constructor(props) {
@@ -35,127 +36,120 @@ guestLogin() {
   linkRedirects() {
     if (this.props.formType === "login") {
       return (
-
         <div className="session-link">
-
-          <div className="link-text">
-            <p className="link-text-p">Need an account? </p>
-            <Link onClick={this.props.resetErrors} to="/signup" className="session-redirect-link"> Register </Link>
-            <p className="link-text-p">or take a peek </p>
-            <div className="guest-link" onClick={this.guestLogin}> Guest Login </div>
-          </div>
-
+            <Link onClick={this.props.resetErrors} to="/signup"> Register </Link>
+            {/* <p>or take a peek </p> */}
+            {/* <div className="guest-link" onClick={this.guestLogin}> Guest Login </div> */}
         </div>
-
-      );
-    } else {
-      return (
-        <div className="session-link">
-
-          <div className="link-text">
-            <p className="link-text-p">Already have an account? </p>
-            <Link onClick={this.props.resetErrors} to="/login" className="session-redirect-link"> Login </Link>
-            <p className="link-text-p">or take a peek</p>
-            <div className="guest-link" onClick={this.guestLogin}> Guest Login </div>
-          </div>
-
-        </div>
-
-      );
-    }
+    );
+  } else {
+    return (
+      <div className="session-link">
+          <Link onClick={this.props.resetErrors} to="/login"> Login </Link>
+          {/* <p>or take a peek</p> */}
+          {/* <div className="guest-link" onClick={this.guestLogin}> Guest Login </div> */}
+      </div>
+    );
   }
+}
 
-  errors() {
-    if (this.props.errors) {
-      const errorList = this.props.errors.map((error, idx) => {
-        return (
-          <li key={`error-${idx}`}>
-            { error }
-          </li>
-        );
-      });
+errors() {
+  if (this.props.errors) {
+    const errorList = this.props.errors.map((error, idx) => {
       return (
-        <ul className="session-errors">
-          { errorList }
-        </ul>
-        );
-    }
+        <li key={`error-${idx}`}>
+          { error }
+        </li>
+      );
+    });
+    return (
+      <ul className="session-errors">
+        { errorList }
+      </ul>
+      );
   }
+}
 
 
 header() {
-  if (this.props.formType === 'login') {
+if (this.props.formType === 'login') {
+  return (
+    <h1>WELCOME BACK.</h1>
+  );
+} else {
     return (
-      <h3 className="form-header">WELCOME BACK.</h3>
+      <h1>CREATE AN ACCOUNT</h1>
     );
-  } else {
-      return (
-        <h3 className="form-header">CREATE AN ACCOUNT</h3>
-      );
-  }
+}
 }
 
 button() {
-  if (this.props.formType === 'login') {
+if (this.props.formType === 'login') {
+  return (
+    <Button>Login</Button>
+  );
+} else {
     return (
-      <button className={"primary-button"}>Login</button>
+      <Button>Continue</Button>
     );
-  } else {
-      return (
-        <button className={"primary-button"}>Continue</button>
-      );
-  }
+}
 }
 
-  render() {
-    return (
+render() {
+  return (
+    <div className="auth-outer">
+      <Grid>
+      {/* Row 1 */}
+      <Row className="session-header-filler" />
       
-        <div className="auth-outer">
-        <div className="auth-inner">
-          <div className="session-form-container">
-              <div className="session-img"></div>
-            <form onSubmit={ this.handleSubmit } className="session-form-box">
+      {/* Row 2 */}
+      <Row inline="true">
+        <Col xs={0} s={0} md={11} lg={11} xl={11}/>
+        <Col xs={0} s={0} md={11} lg={11} xl={11}/>
+        <Col xs={12} s={12} md={1} lg={1} xl={1}>
+          {this.linkRedirects()}
+        </Col>
+      </Row>
+      
+      {/* Row 3 */}
+      <Row inline="true">
+        <Col xs={12} s={12} md={3} lg={3} xl={3}/>
+        <Col xs={12} s={12} md={6} lg={6} xl={6} className="auth-outer">
+          <div className="form-outer">
+            <Form onSubmit={ this.handleSubmit }>
               {this.header()}
-              <div className="register-and-input">
-
-              <div >
-                <label className="register">
-                  USERNAME
-                </label>
+              <div>
                 <div>
-                  <input required className="session-input" type='text'
-                    value={ this.state.username }
-                    onChange={this.update('username')} />
-                  </div>
-                </div>
-
-                <br/>
-                <div>
-                  <label className="register">
-                    PASSWORD
+                  <label>
+                    USERNAME
                   </label>
+                  <div>
+                    <FormControl required type='text'
+                      value={ this.state.username }
+                      onChange={this.update('username')} />
+                    </div>
+                  </div>
+                  <br/>
+                  <div>
+                    <label>
+                      PASSWORD
+                    </label>
+                  </div>
+                  <div>
+                    <FormControl required type='password'
+                      value={ this.state.password }
+                      onChange={this.update('password')} />
                 </div>
-
-
-                <div>
-                  <input required className="session-input" type='password'
-                    value={ this.state.password }
-                    onChange={this.update('password')} />
-              </div>
-
               </div>
 
               {this.errors()}
               {this.button()}
-
-              <footer className="session-link">
-                {this.linkRedirects()}
-
-              </footer>
-            </form>
-
-        </div>
-      </div>
+            </Form>
+          </div>
+        </Col>
+        <Col xs={12} s={12} md={3} lg={3} xl={3}/>
+      </Row>
+      </Grid>
     </div>
   );
   }
