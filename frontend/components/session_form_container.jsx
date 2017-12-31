@@ -18,11 +18,12 @@ const mapDispatchToProps = (dispatch, ownProps) => {
         guestLogin: (guest) => dispatch(login(guest)),
         resetErrors: () => dispatch(clearErrors()),
       };
-    } else { return {
-        processForm: (user) => dispatch(signup(user)),
-        guestLogin: (guest) => dispatch(login(guest)),
-        resetErrors: () => dispatch(clearErrors()),
-      };
+    } else { 
+        return {
+          processForm: (user) => dispatch(signup(user)),
+          guestLogin: (guest) => dispatch(login(guest)),
+          resetErrors: () => dispatch(clearErrors()),
+        };
       }
 };
 

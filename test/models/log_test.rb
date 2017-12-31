@@ -3,7 +3,7 @@
 # Table name: logs
 #
 #  id         :integer          not null, primary key
-#  weight     :integer          not null
+#  food       :string           not null
 #  carb       :integer          not null
 #  fat        :integer          not null
 #  protein    :integer          not null

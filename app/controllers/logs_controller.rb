@@ -1,7 +1,7 @@
 class LogsController < ApplicationController
     
     def index
-        @logs = Log.all
+        @logs = current_user.Log.all
         render :index
       end
   

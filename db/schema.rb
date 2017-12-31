@@ -16,8 +16,7 @@ ActiveRecord::Schema.define(version: 20171228220537) do
   enable_extension "plpgsql"
 
   create_table "logs", force: :cascade do |t|
-    t.string "name", null: false
-    t.integer "weight", null: false
+    t.string "food", null: false
     t.integer "carb", null: false
     t.integer "fat", null: false
     t.integer "protein", null: false

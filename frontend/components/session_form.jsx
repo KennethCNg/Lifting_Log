@@ -117,6 +117,7 @@ render() {
                     onChange={this.update('username')} 
                     placeholder='Username'
                     className='form-control input-lg'
+                    style={{ borderRadius: "4px 4px 0px 0px" }} 
                   />
                 </div>
                 <div className='password-wrapper'>
@@ -125,6 +126,7 @@ render() {
                     onChange={this.update('password')} 
                     placeholder='Password'
                     className='form-control input-lg'
+                    style={{ borderRadius: "0px 0px 4px 4px" }} 
                   />
                 </div>
               </div>
