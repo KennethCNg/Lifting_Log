@@ -35,16 +35,26 @@ guestLogin() {
   linkRedirects() {
     if (this.props.formType === "login") {
       return (
-        <div className="auth-link-register">
-            <Link onClick={this.props.resetErrors} to="/signup"> Register </Link>
+        <Col className="auth-link-signup-div">
+            <Link 
+              className='auth-link'
+              style={{ textDecoration: 'none', color: "white" }} 
+              onClick={this.props.resetErrors} 
+              to="/signup"
+            > Sign up </Link>
             {/* <p>or take a peek </p> */}
             {/* <div className="guest-link" onClick={this.guestLogin}> Guest Login </div> */}
-        </div>
+        </Col>
     );
   } else {
     return (
-      <div className="auth-link-login">
-          <Link onClick={this.props.resetErrors} to="/login"> Log in </Link>
+      <div className="auth-link-login-div">
+          <Link 
+            className='auth-link' 
+            style={{ textDecoration: 'none', color: "white" }} 
+            onClick={this.props.resetErrors} 
+            to="/login"
+          > Log in </Link>
           {/* <p>or take a peek</p> */}
           {/* <div className="guest-link" onClick={this.guestLogin}> Guest Login </div> */}
       </div>
@@ -62,7 +72,7 @@ errors() {
       );
     });
     return (
-      <ul className="session-errors">
+      <ul className="auth-errors">
         { errorList }
       </ul>
       );
@@ -126,6 +136,7 @@ render() {
         </Col>
         <Col xs={12} s={12} md={3} lg={3} xl={3} />
       </Row>
+
       </Grid>
     </div>
   );

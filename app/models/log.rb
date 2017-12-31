@@ -13,7 +13,7 @@
 #
 
 class Log < ApplicationRecord
-    validates :weight, :carb, :fat, :protein, :author_id, presence: true
+    validates :name, :weight, :carb, :fat, :protein, :author_id, presence: true
   
     belongs_to(
     :author,
