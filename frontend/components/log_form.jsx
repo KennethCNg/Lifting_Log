@@ -1,13 +1,13 @@
 import React from 'react';
 import { Route, Link, NavLink } from  'react-router-dom';
-import { Grid, Form, FormControl, Button, Col, Row } from 'react-bootstrap';
+import { Form, FormControl } from 'react-bootstrap';
 import merge from 'lodash';
 
 const initialState = {
   food: "",
-  carb: 0,
-  fat: 0,
-  protein: 0,
+  carb: "",
+  fat: "",
+  protein: "",
 };
 
 class LogForm extends React.Component {
@@ -39,11 +39,14 @@ class LogForm extends React.Component {
     return (
       <Form onSubmit={ this.handleSubmit }>
         <div>
-          Food: <FormControl value={ this.state.food } onChange={ this.handleChange('food') }/>
-          Fats: <FormControl value={ this.state.fat } onChange={ this.handleChange('fat') } />
-          Carbs: <FormControl value={ this.state.carb } onChange={ this.handleChange('carb') }/>  
-          Protein: <FormControl value={ this.state.protein } onChange={ this.handleChange('protein') }/>  
-
+          <FormControl value={ this.state.food } onChange={ this.handleChange('food') } placeholder="Food"/>
+          <br />
+          <FormControl value={ this.state.fat } onChange={ this.handleChange('fat') } placeholder="Fats (g)"/>
+          <br />
+          <FormControl value={ this.state.carb } onChange={ this.handleChange('carb') } placeholder="Carbs (g)"/>  
+          <br />
+          <FormControl value={ this.state.protein } onChange={ this.handleChange('protein') } placeholder="Protein (g)"/>  
+          <br />
           <button>Log it!</button>
         </div>
       </Form>
