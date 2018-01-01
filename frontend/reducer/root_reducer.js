@@ -7,7 +7,7 @@ import logReducer from './log_reducer';
 const rootReducer = combineReducers ({
   session: sessionReducer,
   ui: uiReducer,
-  log: logReducer,
+  logs: logReducer,
 });
 
 export default rootReducer;
