@@ -1,15 +1,16 @@
 class LogsController < ApplicationController
     
     def index
-        @logs = current_user.Log.all
+        @logs = current_user.logs
         render :index
       end
   
       def create
+        debugger
         @log = Log.new(log_params)
         @log.author_id = current_user.id
         if @log.save
-          render :show
+          render :index
         else
           render json: @log.errors.full_messages, status: 422
         end
@@ -25,6 +26,6 @@ class LogsController < ApplicationController
       end
   
       def log_params
-        params.require(:log).permit(:weight, :carb, :fat, :protein)
+        params.require(:log).permit(:food, :carb, :fat, :protein)
       end
 end

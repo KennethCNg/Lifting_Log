@@ -12,15 +12,16 @@ class SessionForm extends React.Component {
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.linkRedirects = this.linkRedirects.bind(this);
-    this.errors = this.errors.bind(this);
     this.button = this.button.bind(this);
     this.guestLogin = this.guestLogin.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+    this.handleClick = this.handleClick.bind(this);
+
   }
 
-
-guestLogin() {
+  guestLogin() {
     this.props.guestLogin(this.props.guest);
-}
+  }
 
   handleSubmit(e) {
     e.preventDefault();
@@ -28,35 +29,37 @@ guestLogin() {
     this.props.processForm({user});
   }
 
-  update(prop) {
+  handleChange(prop) {
     return e => this.setState({[prop]: e.currentTarget.value});
+  }
+
+  handleHistory() {
+    let url = this.props.location.pathname === "/login" ? "/signup" : "/login";
+    this.props.history.push(url);
+  }
+
+  handleClick(e) {    
+    this.handleHistory();
+    this.props.resetErrors.bind(this);
   }
 
   linkRedirects() {
     if (this.props.formType === "login") {
       return (
-        <Col className="auth-link-signup-div">
-            <Link 
-              className='auth-link'
-              style={{ textDecoration: 'none', color: "white" }} 
-              onClick={this.props.resetErrors} 
-              to="/signup"
-            > Sign up </Link>
-            {/* <p>or take a peek </p> */}
-            {/* <div className="guest-link" onClick={this.guestLogin}> Guest Login </div> */}
-        </Col>
+        <div 
+          className="auth-link-signup-div" 
+          onClick={ this.handleClick }
+          style={{ textDecoration: 'none', color: "white" }} 
+          >Sign up
+        </div>
     );
   } else {
     return (
-      <div className="auth-link-login-div">
-          <Link 
-            className='auth-link' 
-            style={{ textDecoration: 'none', color: "white" }} 
-            onClick={this.props.resetErrors} 
-            to="/login"
-          > Log in </Link>
-          {/* <p>or take a peek</p> */}
-          {/* <div className="guest-link" onClick={this.guestLogin}> Guest Login </div> */}
+      <div 
+        className="auth-link-login-div"
+        onClick={ this.handleClick }
+        style={{ textDecoration: 'none', color: "white" }} 
+        >Log in
       </div>
     );
   }
@@ -89,6 +92,7 @@ render() {
   return (
     <div className="auth-outer">
       <Grid>
+        
       {/* Row 1 */}
       <Row inline="true" className='row-1'>
         <Col xs={0} s={0} md={11} lg={11} xl={11}/>
@@ -114,7 +118,7 @@ render() {
                 <div>
                   <FormControl required type='text'
                     value={ this.state.username }
-                    onChange={this.update('username')} 
+                    onChange={this.handleChange('username')} 
                     placeholder='Username'
                     className='form-control input-lg'
                     style={{ borderRadius: "4px 4px 0px 0px" }} 
@@ -123,7 +127,7 @@ render() {
                 <div className='password-wrapper'>
                   <FormControl required type='password'
                     value={ this.state.password }
-                    onChange={this.update('password')} 
+                    onChange={this.handleChange('password')} 
                     placeholder='Password'
                     className='form-control input-lg'
                     style={{ borderRadius: "0px 0px 4px 4px" }} 
