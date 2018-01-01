@@ -14,7 +14,7 @@ const mapDispatchToProps = dispatch => {
   return {
     requestLogout: () => dispatch(logout()),
     requestAllLogs: () => dispatch(requestAllLogs()),
-    requestCreateLog: () => dispatch(requestCreateLog()),
+    requestCreateLog: (log) => dispatch(requestCreateLog(log)),
     requestDestroyLog: (logId) => dispatch(requestDestroyLog(logId)),
   };
 };

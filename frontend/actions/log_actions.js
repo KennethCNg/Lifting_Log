@@ -1,4 +1,4 @@
-import * as LogUtil from '../actions/log_actions';
+import * as LogUtil from '../util/log_util';
 import { receiveErrors } from './ui_actions';
 
 export const RECEIVE_LOGS = "RECEIVE_LOGS";
