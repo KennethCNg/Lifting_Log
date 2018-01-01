@@ -9,6 +9,7 @@ class LogsController < ApplicationController
         @log = Log.new(log_params)
         @log.author_id = current_user.id
         if @log.save
+          @logs = current_user.logged_foods
           render :index
         else
           render json: @log.errors.full_messages, status: 422
@@ -18,7 +19,7 @@ class LogsController < ApplicationController
       def destroy
         @log = Log.find(params[:id])
          if @log.destroy
-           render :show
+          nil
          else
            render json: @log.errors.full_messages, status: 422
          end
