@@ -1,5 +1,5 @@
-@logs.each do |llog|
+@logs.each do |log|
     json.set! log.id do
-      json.extract! log, :weight, :carb, :fat, :protein, :author_id
+      json.extract! log, :food, :carb, :fat, :protein, :author_id
     end
   end

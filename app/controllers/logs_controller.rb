@@ -1,12 +1,11 @@
 class LogsController < ApplicationController
     
     def index
-        @logs = current_user.logs
+        @logs = current_user.logged_foods
         render :index
       end
   
       def create
-        debugger
         @log = Log.new(log_params)
         @log.author_id = current_user.id
         if @log.save

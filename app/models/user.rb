@@ -17,7 +17,7 @@ class User < ApplicationRecord
     after_initialize :ensure_session_token
   
     has_many(
-      :logs,
+      :logged_foods,
       primary_key: :id,
       foreign_key: :author_id,
       class_name: 'Log'

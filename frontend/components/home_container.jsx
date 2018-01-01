@@ -2,11 +2,12 @@ import { connect } from 'react-redux';
 import { logout } from '../actions/session_actions';
 import Home from './home';
 import { requestAllLogs, requestCreateLog, requestDestroyLog } from '../actions/log_actions';
+import { selectLogs } from '../selectors/log_selector';
 
 const mapStateToProps = state => {
   return {
     currentUser: state.session.currentUser,
-    logs: state.logs,
+    logs: selectLogs(state),
   };
 };
 

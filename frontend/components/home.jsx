@@ -18,6 +18,7 @@ class Home extends React.Component {
 
     this.handleClick = this.handleClick.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.renderLogs = this.renderLogs.bind(this);
   }
 
   handleClick() {
@@ -44,9 +45,45 @@ class Home extends React.Component {
     this.props.requestAllLogs();
   }
 
+  renderLogs() {
+    if (this.props.logs.length > 0) {
+      let totalFat = 0;
+      let totalCarb = 0;
+      let totalProtein = 0;
+      const logList = this.props.logs.map((log, idx) => {
+        totalFat += log.fat;
+        totalCarb += log.carb;
+        totalProtein += log.protein;
+        return (
+          <li key={log-`idx`}>
+            Food: {log.food}
+            Carb: {log.carb}
+            Fat: {log.fat}
+            Protein: {log.protein}
+          </li>
+        );
+      });
+      return (
+        <div>
+          <ul>
+            { logList }
+          </ul>
+          <div>
+            Fat: { totalFat }
+            Carb: { totalCarb }
+            Protein: { totalProtein }
+          </div>
+        </div>
+      );
+    } else {
+      null;
+    }
+  }
+
   render() {
     return (
     <Grid className='home-outer'> 
+
       {/* Row 1 */}
       <Row>
         <Col xs={0} s={0} md={11} lg={11} xl={11}/>
@@ -71,10 +108,11 @@ class Home extends React.Component {
               <button>Log it!</button>
             </div>
           </Form>
-          
-          
         </Col>
-        <Col xs={0} s={0} md={7} lg={7} xl={7}/>
+
+        <Col xs={0} s={0} md={7} lg={7} xl={7}>
+        { this.renderLogs() }
+        </Col>
       </Row> 
 
     </Grid>
