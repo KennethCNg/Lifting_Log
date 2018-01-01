@@ -52,4 +52,4 @@ class LogForm extends React.Component {
 
 }
 
-export default LogForm;∫
+export default LogForm;

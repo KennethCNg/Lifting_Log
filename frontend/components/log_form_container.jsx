@@ -4,9 +4,7 @@ import { requestCreateLog } from '../actions/log_actions';
 import LogForm from './log_form';
 
 const mapStateToProps = state => {
-  debugger;
-    return {
-      
+    return { 
     };
   };
   

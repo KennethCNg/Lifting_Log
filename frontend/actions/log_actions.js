@@ -15,7 +15,6 @@ export const requestAllLogs = () => dispatch => {
     return (
         LogUtil.fetchAllLogs()
             .then(fetchedLogs => {
-              debugger;
               dispatch(receiveLogs(fetchedLogs)); 
             },
             (err) => dispatch(receiveErrors(err.responseJSON)))
