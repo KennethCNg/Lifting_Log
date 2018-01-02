@@ -27,6 +27,7 @@ class SessionForm extends React.Component {
     e.preventDefault();
     const user = Object.assign({}, this.state);
     this.props.processForm({user});
+    this.props.resetErrors();
   }
 
   handleChange(prop) {
@@ -40,7 +41,7 @@ class SessionForm extends React.Component {
 
   handleClick(e) {    
     this.handleHistory();
-    this.props.resetErrors.bind(this);
+    this.props.resetErrors();
   }
 
   linkRedirects() {

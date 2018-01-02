@@ -12,6 +12,7 @@ const uiReducer = (state = initialState, action) => {
     case RECEIVE_ERRORS:
       return merge({}, { errors: action.errors });
     case CLEAR_ERRORS:
+    debugger;
       return { errors: [] };
     default:
       return state;
