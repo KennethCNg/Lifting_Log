@@ -12,7 +12,6 @@ class LogsController < ApplicationController
           @logs = current_user.logged_foods
           render :index
         else
-          debugger
           render json: @log.errors.full_messages, status: 422
         end
       end
