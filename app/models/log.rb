@@ -30,10 +30,10 @@ class Log < ApplicationRecord
         food.each_char do |ch|
             if ch.ord == 32
                 next
-            elsif !(ch.ord >= 97 && ch.ord <= 122) || (ch.ord >= 65 && ch.ord <= 90)
+            elsif !((ch.ord >= 97 && ch.ord <= 122) || (ch.ord >= 65 && ch.ord <= 90))
                 return errors.add(:food, "cannot contain numbers or symbols")
             end
         end
     end
-    
+
 end
