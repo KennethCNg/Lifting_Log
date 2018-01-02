@@ -5,6 +5,7 @@ import rootReducer from '../reducer/root_reducer';
 
 // Uncomment this when you need to deplay for production
 const middlewares = [thunk];
+
 if (process.env.NODE_ENV !== 'production') {
   // must use 'require' (import only allowed at top of file)
   const logger = require('redux-logger');
@@ -12,10 +13,7 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 const configureStore = (preloadedState = {}) => (
-  createStore(
-    rootReducer, 
-    preloadedState, 
-    applyMiddleware(thunk, ...middlewares))
+  createStore(rootReducer, preloadedState, applyMiddleware(...middlewares))
 );
 
 export default configureStore;
