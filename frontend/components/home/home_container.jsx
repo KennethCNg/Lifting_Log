@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
-import { logout } from '../actions/session_actions';
+import { logout } from '../../actions/session_actions';
 import Home from './home';
-import { selectLogs } from '../selectors/log_selector';
+import { selectLogs } from '../../selectors/log_selector';
 
 const mapStateToProps = state => {
   return {

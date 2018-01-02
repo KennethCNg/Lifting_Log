@@ -2,7 +2,7 @@ import React from 'react';
 import { Route, Link, NavLink } from  'react-router-dom';
 import { Table } from 'react-bootstrap';
 import merge from 'lodash';
-import LogIndexContainer from './log_form_container';
+import LogIndexContainer from '../log_form/log_form_container';
 
 class LogIndex extends React.Component {
     constructor(props) {
@@ -20,10 +20,10 @@ class LogIndex extends React.Component {
 renderHeader() {
   return (
     <tr key={`header`}>
-      <td key={`food`}>Food</td>
-      <td key={`fat`}>Fats (g)</td>
-      <td key={`carb`}>Carbs (g)</td>
-      <td key={`protein`}>Protein (g)</td>
+      <td key={`food`} className='header-td'>Food</td>
+      <td key={`fat`} className='header-td'>Fats (g)</td>
+      <td key={`carb`} className='header-td'>Carbs (g)</td>
+      <td key={`protein`} className='header-td'>Protein (g)</td>
     </tr>
   );
 }
@@ -62,7 +62,7 @@ renderLogs() {
   render() {
       if (this.props.logs.length > 0) {
         return (
-          <Table responsive striped bordered condensed hover>
+          <Table responsive bordered condensed hover className='table'>
             <tbody>
               { this.renderHeader() }
               { this.renderLogs() }

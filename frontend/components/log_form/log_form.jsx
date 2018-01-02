@@ -1,6 +1,6 @@
 import React from 'react';
 import { Route, Link, NavLink } from  'react-router-dom';
-import { Form, FormControl } from 'react-bootstrap';
+import { Form, FormControl, Button } from 'react-bootstrap';
 import merge from 'lodash';
 
 const initialState = {
@@ -47,7 +47,7 @@ class LogForm extends React.Component {
           <br />
           <FormControl value={ this.state.protein } onChange={ this.handleChange('protein') } placeholder="Protein (g)"/>  
           <br />
-          <button>Log it!</button>
+          <Button bsStyle="success">Log it!</Button>
         </div>
       </Form>
     );

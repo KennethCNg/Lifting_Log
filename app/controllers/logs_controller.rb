@@ -1,7 +1,7 @@
 class LogsController < ApplicationController
     
     def index
-        @logs = current_user.logged_foods
+        @logs = current_user.logged_foods.where("DATE(created_at) = ?", Date.today)
         render :index
       end
   
