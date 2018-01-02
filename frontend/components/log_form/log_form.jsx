@@ -20,6 +20,7 @@ class LogForm extends React.Component {
   }
 
   handleSubmit(e) {
+    debugger;
     e.preventDefault();
     let log = {
       food: this.state.food,
@@ -47,7 +48,7 @@ class LogForm extends React.Component {
           <br />
           <FormControl value={ this.state.protein } onChange={ this.handleChange('protein') } placeholder="Protein (g)"/>  
           <br />
-          <Button bsStyle="success">Log it!</Button>
+          <Button bsStyle="success" type='submit'>Log it!</Button>
         </div>
       </Form>
     );
