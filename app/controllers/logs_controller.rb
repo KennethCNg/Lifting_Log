@@ -1,7 +1,7 @@
 class LogsController < ApplicationController
     
     def index
-        @logs = current_user.logged_foods.where("DATE(created_at) = ?", Date.today)
+        @logs = current_user.logged_foods.where(created_at: (Time.now.midnight - 1.day)..Time.now.midnight)
         render :index
       end
   
@@ -12,6 +12,7 @@ class LogsController < ApplicationController
           @logs = current_user.logged_foods
           render :index
         else
+          debugger
           render json: @log.errors.full_messages, status: 422
         end
       end

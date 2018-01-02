@@ -46,12 +46,11 @@ class Home extends React.Component {
         
         {/* Row 2 */}
         <Row className='home-row-2'>
-
           <Col xs={12} s={12} md={4} lg={4} xl={4} className='log-form-home'>
             <LogFormContainer />
           </Col>
-          <Col xs={0} s={0} md={1} lg={1} xl={1}/>
-          <Col xs={0} s={0} md={7} lg={7} xl={7}>
+          <Col xs={0} s={0} md={2} lg={2} xl={2}/>
+          <Col xs={0} s={0} md={6} lg={6} xl={6}>
             { this.getDate() }
             <LogIndexContainer />
           </Col>
@@ -59,9 +58,8 @@ class Home extends React.Component {
 
       </Grid>
     </div>
-  );
-}
-
+    );
+  }
 }
 
 export default Home;

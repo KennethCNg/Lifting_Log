@@ -8,6 +8,7 @@ const mapStateToProps = state => {
   return {
     logs: selectLogs(state),
   };
+  
 };
 
 const mapDispatchToProps = dispatch => {

@@ -5,6 +5,7 @@ import LogForm from './log_form';
 
 const mapStateToProps = state => {
     return { 
+      errors: state.ui.errors,
     };
   };
   

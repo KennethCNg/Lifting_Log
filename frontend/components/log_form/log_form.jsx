@@ -17,10 +17,27 @@ class LogForm extends React.Component {
     this.state = initialState;
 
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.errors = this.errors.bind(this);
+  }
+
+  errors() {
+    if (this.props.errors) {
+      const errorList = this.props.errors.map((error, idx) => {
+        return (
+          <li key={`error-${idx}`}>
+            { error }
+          </li>
+        );
+      });
+      return (
+        <ul className="auth-errors">
+          { errorList }
+        </ul>
+        );
+    }
   }
 
   handleSubmit(e) {
-    debugger;
     e.preventDefault();
     let log = {
       food: this.state.food,
@@ -48,6 +65,7 @@ class LogForm extends React.Component {
           <br />
           <FormControl value={ this.state.protein } onChange={ this.handleChange('protein') } placeholder="Protein (g)"/>  
           <br />
+          { this.errors() }
           <Button bsStyle="success" type='submit'>Log it!</Button>
         </div>
       </Form>
