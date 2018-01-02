@@ -8,6 +8,7 @@ end
 # my gems
 gem 'jquery-rails'
 gem 'bcrypt'
+gem 'rails_12factor'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
