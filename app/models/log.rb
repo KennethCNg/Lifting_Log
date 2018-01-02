@@ -15,7 +15,6 @@
 class Log < ApplicationRecord
     validates :food, :carb, :fat, :protein, :author_id, presence: true
     validates_numericality_of :carb, :fat, :protein, :only_integer => true, :greater_than_or_equal_to => 0
-    # validates_format_of :food, :with => /\A[a-z]+\z/i
     validate :food_validation
 
     belongs_to(
@@ -29,7 +28,7 @@ class Log < ApplicationRecord
 
     def food_validation
         food.each_char do |ch|
-            if (ch.ord >= 97 || ch.ord <= 122) || (ch.ord >= 65 || ch.ord <= 90)
+            unless (ch.ord >= 97 && ch.ord <= 122) || (ch.ord >= 65 && ch.ord <= 90)
                 return errors.add(:food, "cannot contain numbers or symbols")
             end
         end

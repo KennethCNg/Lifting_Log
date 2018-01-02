@@ -46,7 +46,8 @@ class LogForm extends React.Component {
       protein: this.state.protein,
     };
     this.props.requestCreateLog({log :log })
-      .then(this.setState(initialState));
+      .then(this.setState(initialState))
+      .then(this.props.resetErrors());
   }
 
   handleChange(prop) {
