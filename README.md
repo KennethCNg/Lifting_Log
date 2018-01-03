@@ -6,6 +6,10 @@
 
 Macro4Me is a single page web application which allows users to log their foods along with their macronutrients to better track their daily macronutrients.
 
+## Technologies
+
+Macro4Me is built using React.js/Redux on the front-end and Ruby on Rails and PostgreSQL on the backend. NPM was the packet manager of choice, along with dependencies such as Babel, Webpack, and Bootstrap. 
+
 ## Features
 
 ### User Authentication
