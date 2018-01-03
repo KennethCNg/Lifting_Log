@@ -4,7 +4,7 @@
 
 [heroku]: https://macro4me.herokuapp.com/#/login
 
-Macro4Me is a single page web application which allows users to log their foods along with their macronutrients to better track their daily macronutrients.
+Macro4Me is a single page web application which allows users to log their foods along with their macronutrients to better track their daily macronutrients. Try it mobile or your browser!
 
 ## Technologies
 
