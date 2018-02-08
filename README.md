@@ -41,6 +41,10 @@ If the user is found in the database and the password is correct, a session toke
 3. Start your server by running `bundle exec rails server`
 
 
+### Issues
+
+1. Revisiting this app some time later, I noticed that logs were't rendering. I after running through the flow from front-end to back-end, I noticed that the issue was actually that the logs were being saved a day later than I expected. Apparently Rails defaults to UTC time! I quickly changed it and fixed it locally. However, it wasn't working in production... That's when I learned Heroku actually defaults to UTC time as well. It was a quick fix, but I've never experienced an issue like this before. Interesting.
+
 ### Coming Soon To a Macro4Me Near You
 
 1. Calories
