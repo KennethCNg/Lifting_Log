@@ -9,7 +9,7 @@ class LogsController < ApplicationController
         @log = Log.new(log_params)
         @log.author_id = current_user.id
         if @log.save
-          @logs = current_user.logged_foods.where("DATE(created_at) = ?", Date.today)
+          @logs = current_user.logged_foods.where(created_at: Date.today.all_day)
           render :index
         else
           render json: @log.errors.full_messages, status: 422
