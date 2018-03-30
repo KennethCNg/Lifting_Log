@@ -2,8 +2,9 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.table {
-    
+.table-responsive {
+    overflow-y: auto;
+    max-height: 86vh;
 }
 
 .header-td {

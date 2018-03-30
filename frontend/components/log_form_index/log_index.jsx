@@ -66,7 +66,7 @@ renderLogs() {
     </tbody>
   );
   return (
-   logList 
+    logList 
   );
 }
 
