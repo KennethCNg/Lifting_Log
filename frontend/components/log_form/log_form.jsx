@@ -62,9 +62,9 @@ class LogForm extends React.Component {
           <br />
           <FormControl value={ this.state.fat } onChange={ this.handleChange('fat') } placeholder="Fats (g)"/>
           <br />
-          <FormControl value={ this.state.carb } onChange={ this.handleChange('carb') } placeholder="Carbs (g)"/>  
+          <FormControl value={ this.state.carb } onChange={ this.handleChange('carb') } placeholder="Carbs (g)"/>
           <br />
-          <FormControl value={ this.state.protein } onChange={ this.handleChange('protein') } placeholder="Protein (g)"/>  
+          <FormControl value={ this.state.protein } onChange={ this.handleChange('protein') } placeholder="Protein (g)"/> 
           <br />
           { this.errors() }
           <Button bsStyle="success" type='submit'>Log it!</Button>

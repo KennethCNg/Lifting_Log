@@ -2,7 +2,6 @@ import React from 'react';
 import { Route, Link, NavLink } from  'react-router-dom';
 import { Table } from 'react-bootstrap';
 import merge from 'lodash';
-import LogIndexContainer from '../log_form/log_form_container';
 
 
 const LogIndex = (props) => {

@@ -3,7 +3,8 @@ import { Route, Link, NavLink } from  'react-router-dom';
 import { Grid, Form, FormControl, Button, Col, Row } from 'react-bootstrap';
 import merge from 'lodash';
 import LogFormContainer from '../log_form/log_form_container';
-import LogIndexContainer from '../log_form_index/log_index_container';
+import LogIndex from '../log_form_index/log_index';
+
 
 class Home extends React.Component {
   constructor(props) {
@@ -52,7 +53,7 @@ class Home extends React.Component {
           <Col xs={0} s={0} md={2} lg={2} xl={2}/>
           <Col xs={0} s={0} md={6} lg={6} xl={6}>
             { this.getDate() }
-            <LogIndexContainer />
+            <LogIndex />
           </Col>
         </Row> 
 
